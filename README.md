@@ -117,7 +117,7 @@ AI는 공개 자료 탐색 보조, 후보 아이디어 비교, 코드와 테스�
 
 ## 관련 링크
 
-- [포트폴리오](https://ksungz-github-io.vercel.app/portfolio)
+- [상세 Case Study](https://ksungz-github-io.vercel.app/case-studies/ax-evidence-gates)
 - [AX 인재전쟁 2026](https://hackathon.jocodingax.ai/)
 
 ## 라이선스
