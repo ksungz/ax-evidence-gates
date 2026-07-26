@@ -12,9 +12,22 @@
 |---|---|---|---:|
 | [Travel Booking Evidence Gate](gates/travel-booking/) | 예약 가능, 가격, 즉시 확정, 포함 사항 같은 구매 관련 문장에 근거가 있는지 확인 | 마이리얼트립 공개 TNA API 문서 | 9 |
 | [Commerce Listing Preflight](gates/commerce-listing/) | 상품 속성, 태그, 사이즈, 상품정보제공고시 누락 신호를 등록 전에 확인 | 무신사 공개 문서와 국가법령정보센터 | 17 |
-| [Investment Answer Gate](gates/investment-answer/) | 단정적 투자 권유, 수익 보장 표현, 사용자 조건과 위험 설명 누락을 확인 | 카카오페이증권 및 공공기관 공개 문서 | 7 |
+| [Investment Answer Gate](gates/investment-answer/) | 단정적 투자 권유, 수익 보장 표현, 사용자 조건과 위험 설명 누락을 확인 | 카카오페이증권 및 공공기관 공개 문서 | 8 |
 
-총 33개 자동 테스트가 정상 입력, 위반 입력, 손상된 입력과 근거 누락을 검증합니다.
+세 품질 게이트의 34개 자동 테스트가 정상 입력, 위반 입력, 손상된 입력과 근거 누락을 검증합니다.
+
+## 제출 이후 확장
+
+해커톤 제출 이후 `Investment Answer Gate`를 실제 검토 업무에 적용한다면 finding 출력만으로는 부족하다고 판단했습니다. 검수자가 결과를 확인하고 수정한 뒤 다시 검사하며, 최종 결정을 기록하는 흐름을 별도 LangGraph PoC로 추가했습니다.
+
+- [Investment Answer Review Workflow](workflows/investment-answer-review/)
+- Finding 유무에 따른 조건 분기
+- 사람 승인, 수정, 반려를 기다리는 Human-in-the-loop
+- 수정본 재검사
+- 결정과 실행 단계를 남기는 감사 기록
+- Streamlit 기반 검토 화면
+
+이 확장 기능은 AX 인재전쟁 제출물에 포함되지 않은 `v0.2 Post-hackathon iteration`입니다. 기존 품질 게이트와 확장 워크플로우를 합쳐 총 39개 자동 테스트를 실행합니다.
 
 ## 케이스 스터디
 
@@ -84,6 +97,8 @@ Python 3 표준 라이브러리만 사용합니다. 저장소 루트에서 전�
 │   ├── travel-booking/
 │   ├── commerce-listing/
 │   └── investment-answer/
+├── workflows/
+│   └── investment-answer-review/
 ├── docs/
 │   ├── architecture.md
 │   └── case-studies/

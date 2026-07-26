@@ -44,5 +44,26 @@ flowchart LR
 |---|---:|
 | Travel Booking Evidence Gate | 9 |
 | Commerce Listing Preflight | 17 |
-| Investment Answer Gate | 7 |
-| 합계 | 33 |
+| Investment Answer Gate | 8 |
+| Investment Answer Review Workflow | 5 |
+| 합계 | 39 |
+
+## 7. 제출 이후 운영 워크플로우 확장
+
+세 품질 게이트는 AX 인재전쟁 제출 범위를 그대로 유지합니다. 제출 이후 `Investment Answer Gate`에 LangGraph 기반 검토 워크플로우를 별도로 추가했습니다.
+
+```mermaid
+flowchart LR
+    A["답변 초안"] --> B["Investment Answer Gate"]
+    B --> C{"Finding 존재?"}
+    C -->|없음| D["검사 완료"]
+    C -->|있음| E["사람 검토 대기"]
+    E -->|승인| F["예외 승인 기록"]
+    E -->|수정| B
+    E -->|반려| G["반려 기록"]
+    D --> H["감사 로그"]
+    F --> H
+    G --> H
+```
+
+LangGraph는 규칙 판단을 대체하지 않습니다. 기존 검사 결과를 상태로 보관하고 조건 분기, 중단, 사람 결정과 재개를 담당합니다. 현재 PoC는 메모리 체크포인트를 사용하며 실제 운영에서는 영속 저장소, 사용자 인증과 권한·감사 정책이 추가로 필요합니다.

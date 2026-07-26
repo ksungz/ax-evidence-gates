@@ -11,7 +11,12 @@ SRC = ROOT / "src"
 EXAMPLES = SRC / "examples"
 sys.path.insert(0, str(SRC))
 
-from kps_decision_answer_gate.gate import evaluate_file, evaluate_path, render_json  # noqa: E402
+from kps_decision_answer_gate.gate import (  # noqa: E402
+    evaluate_file,
+    evaluate_path,
+    evaluate_text,
+    render_json,
+)
 
 
 class KpsGateTests(unittest.TestCase):
@@ -28,6 +33,17 @@ class KpsGateTests(unittest.TestCase):
     def test_better_answer_has_no_findings(self) -> None:
         result = evaluate_file(EXAMPLES / "better-answer.md")
         self.assertEqual([], result.findings)
+
+    def test_in_memory_draft_uses_same_rules(self) -> None:
+        content = (EXAMPLES / "bad-answer.md").read_text(encoding="utf-8")
+        result = evaluate_text(
+            content,
+            case_type="investment_decision",
+            source="draft.md",
+        )
+
+        self.assertTrue(result.findings)
+        self.assertEqual("draft.md", result.source)
 
     def test_json_evidence_entry_requires_public_url(self) -> None:
         result = evaluate_file(EXAMPLES / "json-missing-evidence.json")

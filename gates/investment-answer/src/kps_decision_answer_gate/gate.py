@@ -252,6 +252,31 @@ def evaluate_path(raw_path: str | Path) -> list[EvaluationResult]:
 
 def evaluate_file(raw_path: str | Path) -> EvaluationResult:
     document = load_document(Path(raw_path))
+    return evaluate_document(document)
+
+
+def evaluate_text(
+    content: str,
+    *,
+    case_type: str | None = None,
+    source: str = "<memory>",
+) -> EvaluationResult:
+    """Evaluate an in-memory Markdown draft without writing a temporary file."""
+    answer, answer_start_line = extract_markdown_answer(content)
+    resolved_case_type = case_type or infer_case_type(Path(source), content, None)
+    document = InputDocument(
+        path=Path(source),
+        source=source,
+        content=content,
+        answer=answer,
+        answer_start_line=answer_start_line,
+        evidence_entries=[],
+        case_type=resolved_case_type,
+    )
+    return evaluate_document(document)
+
+
+def evaluate_document(document: InputDocument) -> EvaluationResult:
     findings: list[Finding] = []
     findings.extend(check_unsafe_language(document))
     findings.extend(check_evidence_urls(document))
