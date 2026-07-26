@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "tool": "listing-preflight",
+  "input_file": "src/examples/02-attr-gap.json",
+  "status": "fail",
+  "summary": {
+    "finding_count": 3,
+    "error_count": 0,
+    "warning_count": 3,
+    "info_count": 0
+  },
+  "findings": [
+    {
+      "rule_id": "TERM-CLUSTER-PUFFER",
+      "severity": "warning",
+      "title": "푸퍼 자켓/패딩/패딩 점퍼 클러스터 제안",
+      "input_location": "/product_name",
+      "input_quote": "윈터 라이트 푸퍼 자켓",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 기술블로그 - 패션 택소노미 구축기",
+        "source_url": "https://techblog.musinsa.com/%EC%86%8D%EC%84%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%B6%94%EC%B2%9C-%EA%B3%A0%EB%8F%84%ED%99%94-063ac9881801",
+        "quote": "상품마다 선택해야 할 속성이 많고, 각 속성 클래스에 대한 가이드라인이 없어 서로 다른 해석으로 인한 오류가 많음"
+      },
+      "suggestion": {
+        "action": "review",
+        "description": "표준형을 단정하지 않고 상품 유형 속성이나 태그에 동의어 클러스터 후보를 남긴다.",
+        "diff": "--- original\n+++ suggested\n@@\n- attributes.components.item_type: <missing>\n+ attributes.components.item_type: 푸퍼 자켓 | 패딩 | 패딩 점퍼 클러스터"
+      }
+    },
+    {
+      "rule_id": "ATTR-GAP-LENGTH",
+      "severity": "warning",
+      "title": "기장 표현은 있으나 속성 기장값 없음",
+      "input_location": "/attributes/components/length",
+      "input_quote": "크롭",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 기술블로그 - 패션 택소노미 구축기",
+        "source_url": "https://techblog.musinsa.com/%EC%86%8D%EC%84%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%B6%94%EC%B2%9C-%EA%B3%A0%EB%8F%84%ED%99%94-063ac9881801",
+        "quote": "상품마다 선택해야 할 속성이 많고, 각 속성 클래스에 대한 가이드라인이 없어 서로 다른 해석으로 인한 오류가 많음"
+      },
+      "suggestion": {
+        "action": "add",
+        "description": "크롭/숏은 공개 문서화된 표현 차이 그룹이므로 기장 속성 후보로 검토한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- attributes.components.length: <missing>\n+ attributes.components.length: 크롭 | 숏 클러스터 후보"
+      }
+    },
+    {
+      "rule_id": "ATTR-GAP-NECKLINE",
+      "severity": "warning",
+      "title": "넥라인 표현은 있으나 속성 넥라인값 없음",
+      "input_location": "/attributes/components/neckline",
+      "input_quote": "하이넥",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 기술블로그 - 패션 택소노미 구축기",
+        "source_url": "https://techblog.musinsa.com/%EC%86%8D%EC%84%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%B6%94%EC%B2%9C-%EA%B3%A0%EB%8F%84%ED%99%94-063ac9881801",
+        "quote": "상품마다 선택해야 할 속성이 많고, 각 속성 클래스에 대한 가이드라인이 없어 서로 다른 해석으로 인한 오류가 많음"
+      },
+      "suggestion": {
+        "action": "add",
+        "description": "퍼널넥/하이넥 또는 U넥/라운드넥은 공개 문서화된 사례이므로 넥라인 속성 후보로 검토한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- attributes.components.neckline: <missing>\n+ attributes.components.neckline: 넥라인 클러스터 후보"
+      }
+    }
+  ]
+}

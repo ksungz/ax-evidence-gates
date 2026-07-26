@@ -1,0 +1,78 @@
+{
+  "product_name": "에센셜 후드티셔츠",
+  "category": {
+    "main": "상의",
+    "sub": "후드티셔츠"
+  },
+  "attributes": {
+    "components": {
+      "item_type": "후드티셔츠",
+      "neckline": "후드",
+      "fit": "레귤러",
+      "length": "레귤러",
+      "sleeve_length": "긴소매",
+      "closure": "풀오버"
+    },
+    "design": {
+      "pattern": "단색",
+      "decoration": "로고 자수",
+      "material_expression": "니트"
+    },
+    "material_traits": {
+      "thickness": "보통",
+      "stretch": "보통",
+      "sheerness": "없음"
+    },
+    "sensibility": {
+      "style": "캐주얼",
+      "tpo": "데일리"
+    }
+  },
+  "tags": [
+    "후드티셔츠",
+    "캐주얼",
+    "로고"
+  ],
+  "disclosure": {
+    "material": "면 80%, 폴리에스터 20%",
+    "color": "블랙",
+    "size": "S, M, L, XL",
+    "manufacturer": "샘플어패럴",
+    "country_of_origin": "대한민국",
+    "care": "단독 세탁, 건조기 사용 금지",
+    "manufactured_at": "2026-02",
+    "warranty": "관련 법 및 소비자분쟁해결기준에 따름",
+    "as_contact": "샘플 고객센터 02-0000-0000"
+  },
+  "size_chart": [
+    {
+      "size": "S",
+      "body_length_cm": 66,
+      "shoulder_width_cm": 46,
+      "chest_width_cm": 53,
+      "sleeve_length_cm": 59
+    },
+    {
+      "size": "M",
+      "body_length_cm": 68,
+      "shoulder_width_cm": 48,
+      "chest_width_cm": 55,
+      "sleeve_length_cm": 60
+    },
+    {
+      "size": "L",
+      "body_length_cm": 70,
+      "shoulder_width_cm": 50,
+      "chest_width_cm": 57,
+      "sleeve_length_cm": 61
+    },
+    {
+      "size": "XL",
+      "body_length_cm": 72,
+      "shoulder_width_cm": 52,
+      "chest_width_cm": 59,
+      "sleeve_length_cm": 62
+    }
+  ],
+  "description": "면 혼방 소재의 데일리 후드티셔츠입니다. 상의 실측은 cm 기준입니다."
+}

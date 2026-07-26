@@ -1,0 +1,11 @@
+{
+  "answerId": "example-supported-answer",
+  "overall": "PASS",
+  "counts": {
+    "SUPPORTED": 4,
+    "CONDITIONAL": 0,
+    "BLOCKED": 0
+  },
+  "blockingClaimIds": [],
+  "conditionalClaimIds": []
+}

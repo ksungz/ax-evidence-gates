@@ -1,0 +1,71 @@
+{
+  "answerId": "example-supported-answer",
+  "currentDate": "2026-04-20",
+  "answer": "2026-05-01에는 오사카 난카이 라피트 편도 E-티켓 옵션이 조회되어 예약 가능으로 볼 수 있습니다. 간사이공항→난바 옵션 판매가는 12,000원이며 즉시 확정입니다. 포함 사항은 난카이 라피트 편도 E-티켓입니다.",
+  "claims": [
+    {
+      "id": "c1",
+      "type": "availability",
+      "span": "2026-05-01에는 오사카 난카이 라피트 편도 E-티켓 옵션이 조회되어 예약 가능",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "evidence": [
+        {
+          "path": "/tnaOptions/response/data/selectedDate"
+        },
+        {
+          "path": "/tnaOptions/response/data/options/0/id"
+        },
+        {
+          "path": "/tnaCalendars/response/data/blockDates"
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "type": "option_price",
+      "span": "간사이공항→난바 옵션 판매가는 12,000원",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "optionId": 8901234,
+      "amount": 12000,
+      "currency": "KRW",
+      "evidence": [
+        {
+          "path": "/tnaOptions/response/data/options/0/salePrice"
+        },
+        {
+          "path": "/tnaOptions/response/data/options/0/currency"
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "type": "instant_confirm",
+      "span": "즉시 확정입니다",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "evidence": [
+        {
+          "path": "/tnaCalendars/response/data/instantConfirm"
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "type": "included",
+      "span": "포함 사항은 난카이 라피트 편도 E-티켓입니다",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "value": "난카이 라피트 편도 E-티켓",
+      "evidence": [
+        {
+          "path": "/tnaDetail/response/data/included/0"
+        }
+      ]
+    }
+  ]
+}

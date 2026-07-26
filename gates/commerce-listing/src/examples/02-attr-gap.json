@@ -1,0 +1,74 @@
+{
+  "product_name": "윈터 라이트 푸퍼 자켓",
+  "category": {
+    "main": "아우터",
+    "sub": "패딩"
+  },
+  "attributes": {
+    "components": {
+      "fit": "레귤러",
+      "sleeve_length": "긴소매",
+      "closure": "지퍼"
+    },
+    "design": {
+      "pattern": "단색",
+      "decoration": "스트링",
+      "material_expression": "나일론"
+    },
+    "material_traits": {
+      "thickness": "두꺼움",
+      "stretch": "없음",
+      "sheerness": "없음"
+    },
+    "sensibility": {
+      "style": "캐주얼",
+      "tpo": "겨울 외출"
+    }
+  },
+  "tags": [
+    "아우터",
+    "겨울"
+  ],
+  "disclosure": {
+    "material": "나일론 100%",
+    "color": "아이보리",
+    "size": "S, M, L, XL",
+    "manufacturer": "샘플어패럴",
+    "country_of_origin": "베트남",
+    "care": "드라이클리닝 권장",
+    "manufactured_at": "2026-01",
+    "warranty": "관련 법 및 소비자분쟁해결기준에 따름",
+    "as_contact": "샘플 고객센터 02-0000-0000"
+  },
+  "size_chart": [
+    {
+      "size": "S",
+      "body_length_cm": 61,
+      "shoulder_width_cm": 48,
+      "chest_width_cm": 56,
+      "sleeve_length_cm": 58
+    },
+    {
+      "size": "M",
+      "body_length_cm": 63,
+      "shoulder_width_cm": 50,
+      "chest_width_cm": 58,
+      "sleeve_length_cm": 59
+    },
+    {
+      "size": "L",
+      "body_length_cm": 65,
+      "shoulder_width_cm": 52,
+      "chest_width_cm": 60,
+      "sleeve_length_cm": 60
+    },
+    {
+      "size": "XL",
+      "body_length_cm": 67,
+      "shoulder_width_cm": 54,
+      "chest_width_cm": 62,
+      "sleeve_length_cm": 61
+    }
+  ],
+  "description": "하이넥으로 올라오는 크롭 기장의 가벼운 푸퍼 자켓입니다."
+}

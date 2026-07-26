@@ -1,0 +1,77 @@
+{
+  "product_name": "시그니처 후드티셔츠",
+  "category": {
+    "main": "상의",
+    "sub": "후드티셔츠"
+  },
+  "attributes": {
+    "components": {
+      "item_type": "후드티셔츠",
+      "neckline": "후드",
+      "fit": "오버핏",
+      "length": "레귤러",
+      "sleeve_length": "긴소매",
+      "closure": "풀오버"
+    },
+    "design": {
+      "pattern": "단색",
+      "decoration": "로고 프린트",
+      "material_expression": "쭈리"
+    },
+    "material_traits": {
+      "thickness": "보통",
+      "stretch": "약간",
+      "sheerness": "없음"
+    },
+    "sensibility": {
+      "style": "스트릿",
+      "tpo": "데일리"
+    }
+  },
+  "tags": [
+    "스웨트셔츠",
+    "로고티"
+  ],
+  "disclosure": {
+    "material": "면 70%, 폴리에스터 30%",
+    "color": "멜란지 그레이",
+    "size": "S, M, L, XL",
+    "manufacturer": "샘플어패럴",
+    "country_of_origin": "대한민국",
+    "care": "뒤집어서 세탁망 사용",
+    "manufactured_at": "2026-03",
+    "warranty": "관련 법 및 소비자분쟁해결기준에 따름",
+    "as_contact": "샘플 고객센터 02-0000-0000"
+  },
+  "size_chart": [
+    {
+      "size": "S",
+      "body_length_cm": 65,
+      "shoulder_width_cm": 50,
+      "chest_width_cm": 56,
+      "sleeve_length_cm": 58
+    },
+    {
+      "size": "M",
+      "body_length_cm": 67,
+      "shoulder_width_cm": 52,
+      "chest_width_cm": 58,
+      "sleeve_length_cm": 59
+    },
+    {
+      "size": "L",
+      "body_length_cm": 69,
+      "shoulder_width_cm": 54,
+      "chest_width_cm": 60,
+      "sleeve_length_cm": 60
+    },
+    {
+      "size": "XL",
+      "body_length_cm": 71,
+      "shoulder_width_cm": 56,
+      "chest_width_cm": 62,
+      "sleeve_length_cm": 61
+    }
+  ],
+  "description": "로고 포인트가 있는 후디 스타일의 후드 티셔츠입니다."
+}

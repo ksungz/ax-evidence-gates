@@ -1,0 +1,39 @@
+{
+  "traceId": "example-tool-trace-osaka-rapit-2026-05-01",
+  "note": "Synthetic tool trace based on public TNA endpoint shapes. This is not a live API trace.",
+  "steps": [
+    {
+      "endpoint": "POST /v1/products/tna/search",
+      "request": {
+        "keyword": "오사카 라피트",
+        "category": "transportation_v2",
+        "page": 1,
+        "size": 20
+      },
+      "evidencePath": "/cases/0/tnaSearch/response/data/items/0/gid"
+    },
+    {
+      "endpoint": "POST /v1/products/tna/detail",
+      "request": {
+        "gid": "5869248"
+      },
+      "evidencePath": "/cases/0/tnaDetail/response/data/included"
+    },
+    {
+      "endpoint": "POST /v1/products/tna/options",
+      "request": {
+        "gid": "5869248",
+        "selectedDate": "2026-05-01"
+      },
+      "evidencePath": "/cases/0/tnaOptions/response/data/options"
+    },
+    {
+      "endpoint": "POST /v1/products/tna/calendars",
+      "request": {
+        "gid": "5869248",
+        "selectedDate": "2026-05-01"
+      },
+      "evidencePath": "/cases/0/tnaCalendars/response/data/instantConfirm"
+    }
+  ]
+}

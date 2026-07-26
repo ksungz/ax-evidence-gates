@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking Evidence Gate Overview</title>
+  <style>
+    :root {
+      --ink: #16202a;
+      --muted: #5d6978;
+      --line: #d7dee8;
+      --panel: #ffffff;
+      --bg: #f6f8fb;
+      --blue: #2f6fed;
+      --teal: #008b8b;
+      --amber: #b76e00;
+      --red: #c93a3a;
+      --green: #267a3e;
+      --purple: #6954c7;
+      --shadow: 0 12px 30px rgba(22, 32, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      max-width: 820px;
+    }
+
+    h2 {
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .lede {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 780px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .summary-panel {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+
+    .summary-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 14px;
+    }
+
+    .summary-row strong {
+      color: var(--ink);
+    }
+
+    .summary-row span {
+      color: var(--muted);
+    }
+
+    section {
+      margin-top: 24px;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 150px;
+    }
+
+    .card p,
+    .card li,
+    .panel li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .tag.teal {
+      background: var(--teal);
+    }
+
+    .tag.purple {
+      background: var(--purple);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr 48px 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .flow-step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--blue);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 154px;
+    }
+
+    .flow-step:nth-child(3) {
+      border-top-color: var(--teal);
+    }
+
+    .flow-step:nth-child(5) {
+      border-top-color: var(--purple);
+    }
+
+    .arrow {
+      height: 2px;
+      background: var(--line);
+      position: relative;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -5px;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid var(--line);
+    }
+
+    .verdicts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .verdict {
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .verdict strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .supported strong {
+      color: var(--green);
+    }
+
+    .conditional strong {
+      color: var(--amber);
+    }
+
+    .blocked strong {
+      color: var(--red);
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .quote {
+      border-left: 5px solid var(--amber);
+      padding: 14px 16px;
+      background: #fffaf0;
+      border-radius: 8px;
+      color: #4d3820;
+      font-size: 14px;
+    }
+
+    code,
+    pre {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: #111827;
+      color: #f3f4f6;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .compact-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      border: 1px solid #b9c3d1;
+      background: #eef3f8;
+      border-radius: 8px;
+      padding: 16px 18px;
+      color: #405166;
+      font-size: 14px;
+    }
+
+    @media (max-width: 880px) {
+      header,
+      .grid-3,
+      .grid-2,
+      .demo,
+      .verdicts {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        width: 2px;
+        height: 24px;
+        justify-self: center;
+      }
+
+      .arrow::after {
+        right: auto;
+        left: -5px;
+        top: 18px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 9px solid var(--line);
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="panel">
+        <p class="eyebrow">Codex Plugin Visual Overview</p>
+        <h1>Booking Evidence Gate for MyRealTrip TNA</h1>
+        <p class="lede">AI 여행 답변이 사용자에게 나가기 전에 예약 가능 여부, 가격, 즉시확정, 포함사항, 취소 가능 여부 같은 구매 관련 문장이 충분한 근거를 갖는지 확인하는 재현 가능한 품질 게이트입니다.</p>
+      </div>
+      <aside class="panel summary-panel" aria-label="prototype summary">
+        <div class="summary-row">
+          <strong>역할</strong>
+          <span>추천 생성이 아니라 사전 검수</span>
+        </div>
+        <div class="summary-row">
+          <strong>데이터</strong>
+          <span>Synthetic fixture와 공개 문서 기반 field만 사용</span>
+        </div>
+        <div class="summary-row">
+          <strong>실행</strong>
+          <span>로컬 script, tests, Codex skill demo</span>
+        </div>
+      </aside>
+    </header>
+
+    <section class="grid-2" aria-labelledby="problem-title">
+      <div class="panel">
+        <h2 id="problem-title">해결하는 문제</h2>
+        <p>여행 AI는 자연스러운 추천 문장을 만들 수 있지만, 구매 직전 표현에는 날짜별 예약 가능 여부, 옵션 가격, 즉시확정, 포함/불포함, 취소 가능 여부 같은 근거가 필요합니다.</p>
+        <p style="margin-top: 12px;">이 플러그인은 이미 생성된 답변이 근거 없이 구매 확신을 주는지 확인합니다. 실제 예약, 결제, 실시간 재고 조회는 구현하지 않습니다.</p>
+      </div>
+      <div class="panel">
+        <h2>현재 프로토타입의 경계</h2>
+        <ul class="compact-list">
+          <li>실제 MyRealTrip 내부 데이터나 비공개 API를 사용하지 않습니다.</li>
+          <li>샘플 answer contract, synthetic TNA evidence, claim policy로 재현합니다.</li>
+          <li>취소정책 field는 현재 공개 TNA fixture 범위에 없으므로 관련 claim은 BLOCKED입니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="inputs-title">
+      <h2 id="inputs-title">입력 구조</h2>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">Answer Contract</span>
+          <h3>검수할 AI 답변 claim</h3>
+          <p><code>claims[]</code>에 문장 span, claim type, 날짜, 옵션, 가격, evidence pointer를 담습니다.</p>
+          <ul class="compact-list">
+            <li><code>src/contracts/answer_contract.example.json</code></li>
+            <li><code>src/contracts/try_in_chat_review.example.json</code></li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag teal">Synthetic TNA Evidence</span>
+          <h3>공개 문서 기반 샘플 근거</h3>
+          <p>문서에서 확인되는 TNA endpoint와 field를 synthetic fixture로 구성합니다. 라이브 재고나 실시간 가격이 아닙니다.</p>
+          <ul class="compact-list">
+            <li><code>src/fixtures/synthetic_tna_evidence.json</code></li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag purple">Claim Policy</span>
+          <h3>판정 기준</h3>
+          <p>예약 가능, 가격, 즉시확정, 포함사항, 취소정책 등 claim type별 필요한 evidence 기준을 명시합니다.</p>
+          <ul class="compact-list">
+            <li><code>src/policies/claim_policy.json</code></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="flow-title">
+      <h2 id="flow-title">처리 흐름</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <h3>1. Claim 분류</h3>
+          <p>답변 안의 구매 관련 문장을 <code>availability</code>, <code>option_price</code>, <code>instant_confirm</code>, <code>included</code>, <code>cancellation_policy</code> 같은 type으로 다룹니다.</p>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="flow-step">
+          <h3>2. Evidence path 확인</h3>
+          <p>claim이 지정한 JSON pointer를 fixture에서 해석하고, 필요한 field와 claim 인자가 일치하는지 확인합니다.</p>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="flow-step">
+          <h3>3. Verdict 생성</h3>
+          <p>각 claim에 <code>SUPPORTED</code>, <code>CONDITIONAL</code>, <code>BLOCKED</code>를 부여하고, span, reason, evidence path를 결과에 포함합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="verdict-title">
+      <h2 id="verdict-title">판정 기준</h2>
+      <div class="verdicts">
+        <div class="verdict supported">
+          <strong>SUPPORTED</strong>
+          <p>필요한 evidence path가 존재하고, claim의 날짜, 옵션, 가격, 수량 같은 인자와 일치합니다.</p>
+        </div>
+        <div class="verdict conditional">
+          <strong>CONDITIONAL</strong>
+          <p>근거가 일부 있거나 간접적이어서 사용자에게 단정 표현 대신 조건이나 주의 문구가 필요합니다.</p>
+        </div>
+        <div class="verdict blocked">
+          <strong>BLOCKED</strong>
+          <p>필요한 근거가 없거나, 공개 fixture 범위에 없는 정보를 단정합니다. 구매 판단에 영향을 주는 표현은 수정해야 합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" aria-labelledby="demo-title">
+      <div class="panel">
+        <h2 id="demo-title">Try Chat 데모 핵심</h2>
+        <div class="quote">
+          2026년 5월 1일 오사카 여행에서 간사이공항에서 난바로 이동한다면 라피트 편도 티켓을 추천합니다.<br>
+          해당 날짜에 바로 예약 가능하고, 결제하면 즉시 확정됩니다.<br>
+          성인 1명 기준 가격은 12,000원이며, 수하물 포함이고 무료 취소도 가능합니다.
+        </div>
+        <p style="margin-top: 14px;">예약 가능, 즉시확정, 12,000원 가격, 수하물 포함은 샘플 evidence와 일치합니다. 하지만 "무료 취소도 가능합니다"는 현재 synthetic TNA evidence와 claim policy 안에 취소정책 근거가 없으므로 <strong>근거 부족</strong>으로 잡힙니다.</p>
+      </div>
+      <div class="panel">
+        <h2>데모 출력 요약</h2>
+        <pre>전체 판단: 수정 필요
+요약: 근거 있음 4개, 확인 필요 0개, 근거 부족 1개
+- 근거 있음: 해당 날짜에 바로 예약 가능
+- 근거 있음: 결제하면 즉시 확정됩니다
+- 근거 있음: 성인 1명 기준 가격은 12,000원
+- 근거 있음: 수하물 포함
+- 근거 부족: 무료 취소도 가능합니다
+  이유: 제공된 근거 데이터에는 취소 정책 근거가 없습니다</pre>
+      </div>
+    </section>
+
+    <section class="grid-2" aria-labelledby="commands-title">
+      <div class="panel">
+        <h2 id="commands-title">실행 명령</h2>
+        <pre>python3 src/scripts/readiness_audit.py \
+  --answer src/contracts/try_in_chat_review.example.json \
+  --evidence src/fixtures/synthetic_tna_evidence.json \
+  --policy src/policies/claim_policy.json \
+  --format korean-summary</pre>
+      </div>
+      <div class="panel">
+        <h2>테스트 명령</h2>
+        <pre>python3 -m unittest discover -s src/tests -v</pre>
+        <p style="margin-top: 12px;">테스트는 예약 가능, 근거 없는 예약 가능, 상대 날짜, 검색 대표가, 취소정책, 예약/결제 완료 claim, 수량 초과, verdict trace, 사용자 표시 문구를 확인합니다.</p>
+      </div>
+    </section>
+
+    <p class="footer-note">이 문서는 보조 설명용이며 README와 실제 코드가 정본입니다.</p>
+  </main>
+</body>
+</html>

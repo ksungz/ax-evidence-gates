@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/listing-preflight/report.schema.json",
+  "title": "listing-preflight report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tool",
+    "input_file",
+    "status",
+    "summary",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "tool": {
+      "type": "string",
+      "const": "listing-preflight"
+    },
+    "input_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_count",
+        "error_count",
+        "warning_count",
+        "info_count"
+      ],
+      "properties": {
+        "finding_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "error_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "info_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "severity",
+          "title",
+          "input_location",
+          "input_quote",
+          "evidence",
+          "suggestion"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9-]+$",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_location": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_quote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "basis_type",
+              "source_title",
+              "source_url",
+              "quote"
+            ],
+            "properties": {
+              "basis_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "supporting_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "source_title",
+                    "source_url"
+                  ],
+                  "properties": {
+                    "source_title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "suggestion": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action",
+              "description",
+              "diff"
+            ],
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "replace",
+                  "review"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "diff": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

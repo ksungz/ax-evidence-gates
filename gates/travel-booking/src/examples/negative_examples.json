@@ -1,0 +1,108 @@
+{
+  "examples": [
+    {
+      "name": "availability_without_options_evidence",
+      "answer": {
+        "answerId": "negative-availability-no-evidence",
+        "currentDate": "2026-04-20",
+        "answer": "2026-05-03 예약 가능합니다.",
+        "claims": [
+          {
+            "id": "n1",
+            "type": "availability",
+            "span": "2026-05-03 예약 가능합니다",
+            "caseId": "osaka-rapit-2026-05-01",
+            "gid": "5869248",
+            "selectedDate": "2026-05-03",
+            "evidence": [
+              {
+                "path": "/tnaSearch/response/data/items/0/gid"
+              }
+            ]
+          }
+        ]
+      },
+      "expectedVerdict": "BLOCKED"
+    },
+    {
+      "name": "relative_date_without_current_date",
+      "answer": {
+        "answerId": "negative-relative-date",
+        "answer": "내일 예약 가능합니다.",
+        "claims": [
+          {
+            "id": "n2",
+            "type": "relative_date",
+            "span": "내일 예약 가능합니다",
+            "caseId": "osaka-rapit-2026-05-01",
+            "evidence": []
+          }
+        ]
+      },
+      "expectedVerdict": "BLOCKED"
+    },
+    {
+      "name": "search_price_as_final_payment_price",
+      "answer": {
+        "answerId": "negative-search-price-final",
+        "currentDate": "2026-04-20",
+        "answer": "최종 결제 가격은 12,657원입니다.",
+        "claims": [
+          {
+            "id": "n3",
+            "type": "option_price",
+            "span": "최종 결제 가격은 12,657원입니다",
+            "caseId": "osaka-rapit-2026-05-01",
+            "gid": "5869248",
+            "amount": 12657,
+            "currency": "KRW",
+            "evidence": [
+              {
+                "path": "/tnaSearch/response/data/items/0/salePrice"
+              }
+            ]
+          }
+        ]
+      },
+      "expectedVerdict": "BLOCKED"
+    },
+    {
+      "name": "free_cancellation_without_policy_field",
+      "answer": {
+        "answerId": "negative-cancellation",
+        "currentDate": "2026-04-20",
+        "answer": "무료 취소 가능합니다.",
+        "claims": [
+          {
+            "id": "n4",
+            "type": "cancellation_policy",
+            "span": "무료 취소 가능합니다",
+            "caseId": "osaka-rapit-2026-05-01",
+            "gid": "5869248",
+            "evidence": []
+          }
+        ]
+      },
+      "expectedVerdict": "BLOCKED"
+    },
+    {
+      "name": "reservation_confirmed_without_booking_tool",
+      "answer": {
+        "answerId": "negative-booking-complete",
+        "currentDate": "2026-04-20",
+        "answer": "예약 확정까지 완료되었습니다.",
+        "claims": [
+          {
+            "id": "n5",
+            "type": "reservation_or_payment_complete",
+            "span": "예약 확정까지 완료되었습니다",
+            "caseId": "osaka-rapit-2026-05-01",
+            "gid": "5869248",
+            "evidence": []
+          }
+        ]
+      },
+      "expectedVerdict": "BLOCKED"
+    }
+  ]
+}

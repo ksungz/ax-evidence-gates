@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "tool": "listing-preflight",
+  "input_file": "src/examples/05-missing-disclosure.json",
+  "status": "fail",
+  "summary": {
+    "finding_count": 1,
+    "error_count": 1,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "findings": [
+    {
+      "rule_id": "GOSI-CLOTHING-07-MISSING",
+      "severity": "error",
+      "title": "제조연월 고시 항목 누락",
+      "input_location": "/disclosure/manufactured_at",
+      "input_quote": "<missing>",
+      "evidence": {
+        "basis_type": "law",
+        "source_title": "전자상거래 등에서의 상품 등의 정보제공에 관한 고시 별표 (1) 의류",
+        "source_url": "https://law.go.kr/행정규칙/전자상거래등에서의상품등의정보제공에관한고시",
+        "quote": "제품 소재, 색상, 치수, 제조자, 제조국, 세탁방법 및 취급시 주의사항, 제조연월, 품질보증기준, A/S 책임자와 전화번호"
+      },
+      "suggestion": {
+        "action": "add",
+        "description": "고시 별표 (1) 의류 07호 '제조연월'에 해당하는 값을 입력한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- disclosure.manufactured_at: <missing>\n+ disclosure.manufactured_at: <제조연월>"
+      }
+    }
+  ]
+}

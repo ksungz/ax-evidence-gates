@@ -1,0 +1,31 @@
+{
+  "name": "listing-preflight",
+  "version": "0.1.0",
+  "description": "Public-evidence listing preflight checks using synthetic product data.",
+  "author": {
+    "name": "Sungjae Kim"
+  },
+  "keywords": [
+    "musinsa",
+    "listing",
+    "preflight",
+    "json-schema"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Listing Preflight",
+    "shortDescription": "Check listing JSON with public evidence-backed rules.",
+    "longDescription": "Runs deterministic local checks and provides a Codex judgment skill for a narrow Musinsa listing-preflight demo. It does not connect to Musinsa admin, private APIs, or account data.",
+    "developerName": "Sungjae Kim",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "examples 5건으로 상품 등록 검수 데모 보여줘",
+      "상품 JSON 하나를 공개 근거 기준으로 검수해줘",
+      "생성된 리포트가 JSON Schema를 통과하는지 확인해줘"
+    ]
+  }
+}

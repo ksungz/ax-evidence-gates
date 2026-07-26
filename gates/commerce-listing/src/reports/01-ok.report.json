@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "tool": "listing-preflight",
+  "input_file": "src/examples/01-ok.json",
+  "status": "pass",
+  "summary": {
+    "finding_count": 0,
+    "error_count": 0,
+    "warning_count": 0,
+    "info_count": 0
+  },
+  "findings": []
+}

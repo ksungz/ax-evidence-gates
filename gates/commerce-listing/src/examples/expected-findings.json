@@ -1,0 +1,18 @@
+{
+  "01-ok.json": [],
+  "02-attr-gap.json": [
+    "TERM-CLUSTER-PUFFER",
+    "ATTR-GAP-LENGTH",
+    "ATTR-GAP-NECKLINE"
+  ],
+  "03-tag-mismatch.json": [
+    "TAG-MISMATCH-SWEATSHIRT"
+  ],
+  "04-size-anomaly.json": [
+    "SIZE-UNIT-SUSPECT",
+    "SIZE-ORDER-INVERSION"
+  ],
+  "05-missing-disclosure.json": [
+    "GOSI-CLOTHING-07-MISSING"
+  ]
+}

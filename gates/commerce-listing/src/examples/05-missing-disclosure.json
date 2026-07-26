@@ -1,0 +1,76 @@
+{
+  "product_name": "오픈카라 니트 가디건",
+  "category": {
+    "main": "상의",
+    "sub": "가디건"
+  },
+  "attributes": {
+    "components": {
+      "item_type": "가디건",
+      "neckline": "오픈카라",
+      "fit": "레귤러",
+      "length": "레귤러",
+      "sleeve_length": "긴소매",
+      "closure": "버튼"
+    },
+    "design": {
+      "pattern": "단색",
+      "decoration": "버튼",
+      "material_expression": "니트"
+    },
+    "material_traits": {
+      "thickness": "보통",
+      "stretch": "있음",
+      "sheerness": "없음"
+    },
+    "sensibility": {
+      "style": "프레피",
+      "tpo": "출근"
+    }
+  },
+  "tags": [
+    "가디건",
+    "니트"
+  ],
+  "disclosure": {
+    "material": "아크릴 60%, 면 40%",
+    "color": "네이비",
+    "size": "S, M, L, XL",
+    "manufacturer": "샘플어패럴",
+    "country_of_origin": "중국",
+    "care": "중성세제 손세탁",
+    "warranty": "관련 법 및 소비자분쟁해결기준에 따름",
+    "as_contact": "샘플 고객센터 02-0000-0000"
+  },
+  "size_chart": [
+    {
+      "size": "S",
+      "body_length_cm": 63,
+      "shoulder_width_cm": 43,
+      "chest_width_cm": 51,
+      "sleeve_length_cm": 58
+    },
+    {
+      "size": "M",
+      "body_length_cm": 65,
+      "shoulder_width_cm": 45,
+      "chest_width_cm": 53,
+      "sleeve_length_cm": 59
+    },
+    {
+      "size": "L",
+      "body_length_cm": 67,
+      "shoulder_width_cm": 47,
+      "chest_width_cm": 55,
+      "sleeve_length_cm": 60
+    },
+    {
+      "size": "XL",
+      "body_length_cm": 69,
+      "shoulder_width_cm": 49,
+      "chest_width_cm": 57,
+      "sleeve_length_cm": 61
+    }
+  ],
+  "description": "공개 기준 검수용으로 제조연월 고시 항목이 빠진 샘플입니다."
+}

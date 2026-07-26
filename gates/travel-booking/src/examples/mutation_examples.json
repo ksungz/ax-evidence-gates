@@ -1,0 +1,29 @@
+{
+  "mutations": [
+    {
+      "name": "remove_options",
+      "change": "Set /tnaOptions/response/data/options to an empty array.",
+      "expectedEffect": "availability claim becomes BLOCKED"
+    },
+    {
+      "name": "change_selectedDate",
+      "change": "Change /tnaOptions/response/data/selectedDate so it differs from the claim selectedDate.",
+      "expectedEffect": "availability claim becomes BLOCKED"
+    },
+    {
+      "name": "use_search_price_as_final_price",
+      "change": "Cite /tnaSearch/response/data/items/0/salePrice for an option_price claim.",
+      "expectedEffect": "option_price claim becomes BLOCKED"
+    },
+    {
+      "name": "remove_currentDate",
+      "change": "Remove currentDate from an answer that resolves a relative date.",
+      "expectedEffect": "relative_date claim becomes BLOCKED"
+    },
+    {
+      "name": "claim_free_cancellation",
+      "change": "Add a cancellation_policy claim without a public cancellation-policy field.",
+      "expectedEffect": "cancellation_policy claim becomes BLOCKED"
+    }
+  ]
+}

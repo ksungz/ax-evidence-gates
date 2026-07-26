@@ -1,0 +1,84 @@
+{
+  "answerId": "try-in-chat-review-example",
+  "currentDate": "2026-04-20",
+  "answer": "2026년 5월 1일 오사카 여행에서 간사이공항에서 난바로 이동한다면 라피트 편도 티켓을 추천합니다. 해당 날짜에 바로 예약 가능하고, 결제하면 즉시 확정됩니다. 성인 1명 기준 가격은 12,000원이며, 수하물 포함이고 무료 취소도 가능합니다.",
+  "claims": [
+    {
+      "id": "t1",
+      "type": "availability",
+      "span": "해당 날짜에 바로 예약 가능",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "optionId": 8901234,
+      "quantity": 1,
+      "evidence": [
+        {
+          "path": "/tnaOptions/response/data/selectedDate"
+        },
+        {
+          "path": "/tnaOptions/response/data/options/0/id"
+        },
+        {
+          "path": "/tnaOptions/response/data/options/0/availablePurchaseQuantity"
+        },
+        {
+          "path": "/tnaCalendars/response/data/blockDates"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "type": "instant_confirm",
+      "span": "결제하면 즉시 확정됩니다",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "evidence": [
+        {
+          "path": "/tnaCalendars/response/data/instantConfirm"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "type": "option_price",
+      "span": "성인 1명 기준 가격은 12,000원",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "selectedDate": "2026-05-01",
+      "optionId": 8901234,
+      "amount": 12000,
+      "currency": "KRW",
+      "evidence": [
+        {
+          "path": "/tnaOptions/response/data/options/0/salePrice"
+        },
+        {
+          "path": "/tnaOptions/response/data/options/0/currency"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "type": "included",
+      "span": "수하물 포함",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "value": "수하물 포함",
+      "evidence": [
+        {
+          "path": "/tnaDetail/response/data/included/1"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "type": "cancellation_policy",
+      "span": "무료 취소도 가능합니다",
+      "caseId": "osaka-rapit-2026-05-01",
+      "gid": "5869248",
+      "evidence": []
+    }
+  ]
+}

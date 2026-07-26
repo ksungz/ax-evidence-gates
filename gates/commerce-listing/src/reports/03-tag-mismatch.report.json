@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "tool": "listing-preflight",
+  "input_file": "src/examples/03-tag-mismatch.json",
+  "status": "fail",
+  "summary": {
+    "finding_count": 1,
+    "error_count": 0,
+    "warning_count": 1,
+    "info_count": 0
+  },
+  "findings": [
+    {
+      "rule_id": "TAG-MISMATCH-SWEATSHIRT",
+      "severity": "warning",
+      "title": "후드티셔츠 상품의 스웨트셔츠 태그 오입력 의심",
+      "input_location": "/tags",
+      "input_quote": "스웨트셔츠",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 기술블로그 - 패션 택소노미 구축기",
+        "source_url": "https://techblog.musinsa.com/%EC%86%8D%EC%84%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%B6%94%EC%B2%9C-%EA%B3%A0%EB%8F%84%ED%99%94-063ac9881801",
+        "quote": "상품마다 선택해야 할 속성이 많고, 각 속성 클래스에 대한 가이드라인이 없어 서로 다른 해석으로 인한 오류가 많음"
+      },
+      "suggestion": {
+        "action": "replace",
+        "description": "후드티셔츠/후드/후디/로고티 표현 변형은 제안만 하고, 스웨트셔츠 태그는 공개 오입력 사례로 검토한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- tags: 스웨트셔츠\n+ tags: 후드티셔츠 또는 후드 관련 태그 후보"
+      }
+    }
+  ]
+}

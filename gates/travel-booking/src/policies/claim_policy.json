@@ -1,0 +1,112 @@
+{
+  "policyVersion": "0.1.0",
+  "sourceDocs": [
+    "https://docs.myrealtrip.com/llms-full.txt",
+    "https://docs.myrealtrip.com/"
+  ],
+  "verdicts": [
+    "SUPPORTED",
+    "CONDITIONAL",
+    "BLOCKED"
+  ],
+  "claimTypes": {
+    "availability": {
+      "description": "A claim that a TNA product is bookable or available on a specific date.",
+      "requiredEvidence": [
+        "/tnaOptions/response/data/selectedDate",
+        "/tnaOptions/response/data/options"
+      ],
+      "blockingRules": [
+        "selectedDate must be YYYY-MM-DD",
+        "tnaOptions.response.data.selectedDate must equal the claim selectedDate",
+        "tnaOptions.response.data.options must be a non-empty array",
+        "tnaCalendars.response.data.blockDates must not contain the claim selectedDate when calendar evidence is provided"
+      ]
+    },
+    "instant_confirm": {
+      "description": "A claim that confirmation is instant.",
+      "requiredEvidence": [
+        "/tnaCalendars/response/data/instantConfirm"
+      ],
+      "blockingRules": [
+        "instantConfirm must be true"
+      ]
+    },
+    "option_price": {
+      "description": "A claim about an option-level numeric sale price.",
+      "requiredEvidence": [
+        "/tnaOptions/response/data/options/*/salePrice",
+        "/tnaOptions/response/data/options/*/currency"
+      ],
+      "blockingRules": [
+        "Use options[].salePrice for option price claims",
+        "Do not treat items[].salePrice, priceDisplay, or basePrice as a final option price"
+      ]
+    },
+    "search_starting_price": {
+      "description": "A claim about a search-result starting price only.",
+      "requiredEvidence": [
+        "/tnaSearch/response/data/items/*/salePrice",
+        "/tnaSearch/response/data/items/*/priceDisplay"
+      ],
+      "blockingRules": [
+        "The wording must say starting price or equivalent",
+        "Do not present this as a final payment price"
+      ]
+    },
+    "included": {
+      "description": "A claim about included items.",
+      "requiredEvidence": [
+        "/tnaDetail/response/data/included"
+      ],
+      "blockingRules": [
+        "The claimed item must appear in included"
+      ]
+    },
+    "excluded": {
+      "description": "A claim about excluded items.",
+      "requiredEvidence": [
+        "/tnaDetail/response/data/excluded"
+      ],
+      "blockingRules": [
+        "The claimed item must appear in excluded"
+      ]
+    },
+    "cancellation_policy": {
+      "description": "A claim about free cancellation or cancellation policy.",
+      "requiredEvidence": [],
+      "blockingRules": [
+        "The documented TNA endpoints in this MVP do not expose a cancellation-policy field"
+      ]
+    },
+    "relative_date": {
+      "description": "A claim that resolves a relative date such as today, tomorrow, this week, or next week.",
+      "requiredEvidence": [
+        "/currentDate"
+      ],
+      "blockingRules": [
+        "currentDate is required before finalizing a relative date"
+      ]
+    },
+    "reservation_or_payment_complete": {
+      "description": "A claim that a booking is confirmed, reservation is complete, or payment is complete.",
+      "requiredEvidence": [],
+      "blockingRules": [
+        "This MVP has no reservation or payment tool"
+      ]
+    },
+    "companion_suitability": {
+      "description": "A claim that the product is suitable for a companion condition such as parents, children, or mobility constraints.",
+      "requiredEvidence": [
+        "/tnaDetail/response/data/description",
+        "/tnaDetail/response/data/itineraries",
+        "/tnaDetail/response/data/included",
+        "/tnaDetail/response/data/excluded"
+      ],
+      "blockingRules": [
+        "Do not state suitability as a fact unless the cited detail fields directly support the condition",
+        "Use caveated wording when the evidence is indirect"
+      ]
+    }
+  }
+}

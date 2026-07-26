@@ -1,0 +1,24 @@
+{
+  "claimId": "c1",
+  "span": "2026-05-01에는 오사카 난카이 라피트 편도 E-티켓 옵션이 조회되어 예약 가능",
+  "verdict": "SUPPORTED",
+  "evidencePaths": [
+    "/tnaOptions/response/data/selectedDate",
+    "/tnaOptions/response/data/options/0/id",
+    "/tnaCalendars/response/data/blockDates"
+  ],
+  "resolvedEvidence": [
+    {
+      "path": "/tnaOptions/response/data/selectedDate",
+      "value": "2026-05-01"
+    },
+    {
+      "path": "/tnaOptions/response/data/options/0/id",
+      "value": 8901234
+    },
+    {
+      "path": "/tnaCalendars/response/data/blockDates",
+      "value": []
+    }
+  ]
+}

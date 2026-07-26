@@ -1,0 +1,24 @@
+{
+  "name": "booking-evidence-gate",
+  "version": "0.1.6+codex.20260629181542",
+  "description": "Quality gate for checking MyRealTrip TNA booking claims against field evidence.",
+  "skills": "./skills/",
+  "author": {
+    "name": "sungjaekim"
+  },
+  "interface": {
+    "displayName": "Booking Evidence Gate",
+    "shortDescription": "Checks MyRealTrip TNA booking claims against cited field evidence.",
+    "longDescription": "Audits AI travel answers for booking-related claims such as availability, option price, instant confirmation, inclusions, cancellation wording, and reservation status using synthetic fixtures based on public MyRealTrip TNA Partner API fields.",
+    "developerName": "sungjaekim",
+    "category": "Productivity",
+    "capabilities": [
+      "Audit booking-related claims",
+      "Check JSON pointer evidence",
+      "Block unsupported purchase-readiness wording"
+    ],
+    "defaultPrompt": [
+      "\uc0d8\ud50c AI \uc5ec\ud589 \ub2f5\ubcc0\uc73c\ub85c \uac80\uc218 \ub370\ubaa8 \ubcf4\uc5ec\uc918"
+    ]
+  }
+}

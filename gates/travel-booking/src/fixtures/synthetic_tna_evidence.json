@@ -1,0 +1,246 @@
+{
+  "fixtureVersion": "0.1.0",
+  "sourceDocs": [
+    "https://docs.myrealtrip.com/llms-full.txt",
+    "https://docs.myrealtrip.com/"
+  ],
+  "note": "Synthetic fixture based only on documented MyRealTrip Partner API TNA endpoints and fields. It is not live inventory, not live price data, and not internal MyRealTrip data.",
+  "cases": [
+    {
+      "caseId": "osaka-rapit-2026-05-01",
+      "tnaSearch": {
+        "endpoint": "POST /v1/products/tna/search",
+        "request": {
+          "keyword": "오사카 라피트",
+          "category": "transportation_v2",
+          "page": 1,
+          "size": 20
+        },
+        "response": {
+          "data": {
+            "items": [
+              {
+                "gid": "5869248",
+                "itemName": "오사카 난카이 라피트 편도 E-티켓 (간사이 공항 ↔ 난카이 난바역)",
+                "description": "오사카 ∙ 이동·교통",
+                "salePrice": 12000,
+                "priceDisplay": "12,000원",
+                "category": "이동·교통",
+                "reviewScore": 4.83,
+                "reviewCount": 1250,
+                "imageUrl": "https://d6bztw1vgnv55.cloudfront.net/experiences/products/5869248/thumbnail.jpg",
+                "productUrl": "https://experiences.myrealtrip.com/products/5869248",
+                "deepLink": "mrt://experiences/detail/5869248",
+                "tags": [
+                  "즉시 확정"
+                ]
+              }
+            ],
+            "totalCount": 1,
+            "page": 1,
+            "perPage": 20,
+            "hasNextPage": false
+          },
+          "meta": {
+            "totalCount": 1
+          },
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      },
+      "tnaDetail": {
+        "endpoint": "POST /v1/products/tna/detail",
+        "request": {
+          "gid": "5869248"
+        },
+        "response": {
+          "data": {
+            "gid": "5869248",
+            "title": "오사카 난카이 라피트 편도 E-티켓 (간사이 공항 ↔ 난카이 난바역)",
+            "description": "오사카 난카이 라피트 편도 E-티켓으로 간사이 공항에서 난바역까지 빠르고 편리하게 이동하세요.",
+            "reviewScore": 4.83,
+            "reviewCount": 1250,
+            "included": [
+              "난카이 라피트 편도 E-티켓",
+              "수하물 포함"
+            ],
+            "excluded": [
+              "개인 경비"
+            ],
+            "itineraries": []
+          },
+          "meta": {},
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      },
+      "tnaOptions": {
+        "endpoint": "POST /v1/products/tna/options",
+        "request": {
+          "gid": "5869248",
+          "selectedDate": "2026-05-01"
+        },
+        "response": {
+          "data": {
+            "selectedDate": "2026-05-01",
+            "options": [
+              {
+                "id": 8901234,
+                "name": "난카이 라피트 편도 E-티켓 (간사이공항→난바)",
+                "salePrice": 12000,
+                "currency": "KRW",
+                "minPurchaseQuantity": 1,
+                "availablePurchaseQuantity": 1
+              },
+              {
+                "id": 8901235,
+                "name": "난카이 라피트 편도 E-티켓 (난바→간사이공항)",
+                "salePrice": 12000,
+                "currency": "KRW",
+                "minPurchaseQuantity": 1,
+                "availablePurchaseQuantity": null
+              }
+            ],
+            "defaultOption": null,
+            "units": [
+              {
+                "id": 13762,
+                "name": "옵션"
+              }
+            ]
+          },
+          "meta": {},
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      },
+      "tnaCalendars": {
+        "endpoint": "POST /v1/products/tna/calendars",
+        "request": {
+          "gid": "5869248",
+          "selectedDate": "2026-05-01"
+        },
+        "response": {
+          "data": {
+            "date": "2026-05",
+            "basePrice": "1.2만",
+            "blockDates": [],
+            "excludedOptionDates": [],
+            "instantConfirm": true
+          },
+          "meta": {},
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "osaka-rapit-2026-05-02-no-options",
+      "tnaSearch": {
+        "endpoint": "POST /v1/products/tna/search",
+        "request": {
+          "keyword": "오사카 라피트",
+          "category": "transportation_v2",
+          "page": 1,
+          "size": 20
+        },
+        "response": {
+          "data": {
+            "items": [
+              {
+                "gid": "5869248",
+                "itemName": "오사카 난카이 라피트 편도 E-티켓 (간사이 공항 ↔ 난카이 난바역)",
+                "description": "오사카 ∙ 이동·교통",
+                "salePrice": 12000,
+                "priceDisplay": "12,000원",
+                "category": "이동·교통",
+                "reviewScore": 4.83,
+                "reviewCount": 1250,
+                "imageUrl": "https://d6bztw1vgnv55.cloudfront.net/experiences/products/5869248/thumbnail.jpg",
+                "productUrl": "https://experiences.myrealtrip.com/products/5869248",
+                "deepLink": "mrt://experiences/detail/5869248",
+                "tags": [
+                  "즉시 확정"
+                ]
+              }
+            ],
+            "totalCount": 1,
+            "page": 1,
+            "perPage": 20,
+            "hasNextPage": false
+          },
+          "meta": {
+            "totalCount": 1
+          },
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      },
+      "tnaOptions": {
+        "endpoint": "POST /v1/products/tna/options",
+        "request": {
+          "gid": "5869248",
+          "selectedDate": "2026-05-02"
+        },
+        "response": {
+          "data": {
+            "selectedDate": "2026-05-02",
+            "options": [],
+            "defaultOption": null,
+            "units": [
+              {
+                "id": 13762,
+                "name": "옵션"
+              }
+            ]
+          },
+          "meta": {},
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      },
+      "tnaCalendars": {
+        "endpoint": "POST /v1/products/tna/calendars",
+        "request": {
+          "gid": "5869248",
+          "selectedDate": "2026-05-02"
+        },
+        "response": {
+          "data": {
+            "date": "2026-05",
+            "basePrice": "1.2만",
+            "blockDates": [
+              "2026-05-02"
+            ],
+            "excludedOptionDates": [],
+            "instantConfirm": true
+          },
+          "meta": {},
+          "result": {
+            "status": 200,
+            "message": "SUCCESS",
+            "code": "success"
+          }
+        }
+      }
+    }
+  ]
+}

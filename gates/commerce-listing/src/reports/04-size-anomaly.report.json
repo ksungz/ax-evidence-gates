@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "tool": "listing-preflight",
+  "input_file": "src/examples/04-size-anomaly.json",
+  "status": "fail",
+  "summary": {
+    "finding_count": 2,
+    "error_count": 0,
+    "warning_count": 2,
+    "info_count": 0
+  },
+  "findings": [
+    {
+      "rule_id": "SIZE-UNIT-SUSPECT",
+      "severity": "warning",
+      "title": "XL 사이즈 단위 혼용 의심",
+      "input_location": "/size_chart/3",
+      "input_quote": "어깨너비 18cm (허용 참고 범위 25-80cm)",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 뉴스룸 2021-09-30 실측 필터 소개",
+        "source_url": "https://newsroom.musinsa.com/newsroom-menu/2021-0930-03",
+        "quote": "총장, 어깨너비, 가슴 단면, 소매 길이 등 실측을 숫자로 입력"
+      },
+      "suggestion": {
+        "action": "review",
+        "description": "상의 실측값을 cm 기준으로 다시 확인한다. inch 값이라면 cm로 환산해 입력한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- size_chart[3]: 어깨너비 18cm (허용 참고 범위 25-80cm)\n+ size_chart[3]: cm 기준 실측값"
+      }
+    },
+    {
+      "rule_id": "SIZE-ORDER-INVERSION",
+      "severity": "warning",
+      "title": "총장 사이즈 간 역전값",
+      "input_location": "/size_chart/2/body_length_cm..3/body_length_cm",
+      "input_quote": "L 총장 71cm > XL 총장 68cm",
+      "evidence": {
+        "basis_type": "musinsa_public_statement",
+        "source_title": "무신사 뉴스룸 2021-09-30 실측 필터 소개",
+        "source_url": "https://newsroom.musinsa.com/newsroom-menu/2021-0930-03",
+        "quote": "총장, 어깨너비, 가슴 단면, 소매 길이 등 실측을 숫자로 입력"
+      },
+      "suggestion": {
+        "action": "review",
+        "description": "사이즈표 원본을 확인해 큰 사이즈의 실측값이 작아진 이유를 검토한다.",
+        "diff": "--- original\n+++ suggested\n@@\n- size_chart[3].body_length_cm: 68\n+ size_chart[3].body_length_cm: >= 71"
+      }
+    }
+  ]
+}

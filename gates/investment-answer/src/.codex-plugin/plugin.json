@@ -1,0 +1,32 @@
+{
+  "name": "kps-decision-answer-gate",
+  "version": "0.1.0",
+  "description": "Local quality gate for checking sample counseling and guidance draft answers against public evidence and safety wording.",
+  "author": {
+    "name": "Sungjae Kim"
+  },
+  "keywords": [
+    "kakaopaysec",
+    "quality-gate",
+    "financial-safety",
+    "codex-skill"
+  ],
+  "skills": "./skills",
+  "interface": {
+    "displayName": "KPS Decision Answer Gate",
+    "shortDescription": "샘플 답변의 공개 근거와 금융 안전 표현을 검수합니다.",
+    "longDescription": "카카오페이증권 공개 자료를 바탕으로 샘플 상담/안내 답변 초안과 상담형 문구를 점검하는 로컬 품질 게이트입니다. Markdown/JSON fixture에서 단정 추천, 수익 보장 오해 표현, 사용자 조건 누락, 공개 근거 URL 누락, 위험과 한계 설명 누락을 검사합니다.",
+    "developerName": "Sungjae Kim",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Local"
+    ],
+    "defaultPrompt": [
+      "src/examples/bad-answer.md를 KPS Decision Answer Gate로 검수해줘.",
+      "bad-answer와 better-answer fixture의 finding 차이를 비교해줘.",
+      "주문장애 fixture를 실행하고 보완 제안을 요약해줘."
+    ],
+    "brandColor": "#1F8A70"
+  }
+}
