@@ -1,0 +1,25 @@
+{
+  "name": "mrt-api-doctor",
+  "version": "0.1.0",
+  "description": "Codex plugin for reviewing MyRealTrip marketing-partner Open API/MCP integration code against public developer-doc pitfalls. Not a travel recommender.",
+  "skills": "./skills/",
+  "author": {
+    "name": "sungjaekim"
+  },
+  "interface": {
+    "displayName": "MRT API Doctor",
+    "shortDescription": "Reviews MyRealTrip Open API/MCP integration code against public-doc pitfalls.",
+    "longDescription": "A developer tool for linting MyRealTrip marketing-partner Open API/MCP integration code against pitfalls documented in the public developer center: per-category pagination differences, airport-vs-city code parameters, mylink URL limits, pageSize and lookback limits, 429 handling, and Bearer auth mistakes. It verifies rule quotes from public docs and runs demos/tests without real API keys or private data.",
+    "developerName": "sungjaekim",
+    "category": "Productivity",
+    "capabilities": [
+      "Lint integration code against public developer-doc pitfalls",
+      "Explain each finding with the exact public-doc quote",
+      "Verify rule quotes against the current public docs bundle",
+      "Probe the public MyRealTrip MCP endpoint health without an API key"
+    ],
+    "defaultPrompt": [
+      "마이리얼트립 API 연동 코드 점검 데모 보여줘"
+    ]
+  }
+}

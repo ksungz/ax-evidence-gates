@@ -4,9 +4,9 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo "[1/4] Travel Booking Evidence Gate"
+echo "[1/4] MRT API Doctor"
 python3 -m unittest discover \
-  -s "$ROOT_DIR/gates/travel-booking/src/tests" \
+  -s "$ROOT_DIR/gates/travel-api-doctor/src/tests" \
   -v
 
 echo
@@ -31,4 +31,4 @@ PYTHONPATH="$ROOT_DIR/gates/investment-answer/src:$ROOT_DIR/workflows/investment
   -v
 
 echo
-echo "All 39 tests passed."
+echo "All 49 tests passed."

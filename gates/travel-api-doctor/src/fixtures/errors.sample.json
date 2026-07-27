@@ -1,0 +1,30 @@
+{
+  "_synthetic": "합성 샘플. 상태 코드와 메시지 문구는 개발자센터 문서 근거, 응답 구조는 데모용 최소 구성",
+  "cases": [
+    {
+      "name": "auth-401",
+      "status": 401,
+      "message": "인증에 실패했습니다. API 키가 누락되었거나 유효하지 않습니다.",
+      "commonCauses": ["Authorization 헤더 누락", "Bearer 접두사 누락", "만료되었거나 재발급된 이전 API 키 사용"]
+    },
+    {
+      "name": "rate-limit-429",
+      "status": 429,
+      "message": "요청 한도를 초과했습니다. 잠시 후 다시 시도해주세요.",
+      "commonCauses": ["API별 분당 요청 한도 초과"],
+      "retryHint": "1분 후 재시도. X-RateLimit-Remaining 헤더로 잔여 요청 수 모니터링 가능"
+    },
+    {
+      "name": "mylink-500",
+      "status": 500,
+      "message": "서버 내부 오류가 발생했습니다.",
+      "commonCauses": ["/v1/mylink targetUrl 2,000자 초과"]
+    },
+    {
+      "name": "reservations-400",
+      "status": 400,
+      "message": "필수 파라미터 누락 또는 형식 오류",
+      "commonCauses": ["조회기간 초과 (비항공 6개월/항공 1개월)", "날짜 형식이 yyyy-MM-dd가 아닌 경우", "pageSize 300 초과"]
+    }
+  ]
+}

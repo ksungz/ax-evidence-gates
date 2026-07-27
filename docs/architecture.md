@@ -1,6 +1,6 @@
 # 공통 설계
 
-세 품질 게이트는 도메인은 다르지만 같은 검증 흐름을 사용합니다.
+세 검수 도구는 검사 대상은 다르지만 같은 검증 원칙을 사용합니다.
 
 ```mermaid
 flowchart LR
@@ -17,7 +17,7 @@ flowchart LR
 
 ## 2. 생성보다 검증
 
-세 프로젝트는 새로운 답변이나 데이터를 생성하는 제품이 아닙니다. 이미 생성된 답변과 등록 데이터를 검수해 사람이 확인해야 할 위치를 좁히는 도구입니다.
+세 프로젝트는 새로운 답변이나 데이터를 생성하는 제품이 아닙니다. 연동 코드, 등록 데이터와 답변 초안을 검수해 사람이 확인해야 할 위치를 좁히는 도구입니다.
 
 ## 3. 결정적 검사와 AI 판단 분리
 
@@ -42,15 +42,17 @@ flowchart LR
 
 | 프로젝트 | 테스트 |
 |---|---:|
-| Travel Booking Evidence Gate | 9 |
+| MRT API Doctor | 19 |
 | Commerce Listing Preflight | 17 |
 | Investment Answer Gate | 8 |
 | Investment Answer Review Workflow | 5 |
-| 합계 | 39 |
+| 합계 | 49 |
+
+해커톤 제출 당시에는 `Investment Answer Gate` 테스트가 7개였기 때문에 세 제출물의 테스트는 총 43개였습니다. 이후 입력 검사 1개와 아래의 검토 워크플로우 테스트 5개를 추가했습니다.
 
 ## 7. 제출 이후 운영 워크플로우 확장
 
-세 품질 게이트는 AX 인재전쟁 제출 범위를 그대로 유지합니다. 제출 이후 `Investment Answer Gate`에 LangGraph 기반 검토 워크플로우를 별도로 추가했습니다.
+세 제출물의 코드와 범위는 구분해 보존합니다. 제출 이후 `Investment Answer Gate`에 LangGraph 기반 검토 워크플로우를 별도로 추가했습니다.
 
 ```mermaid
 flowchart LR

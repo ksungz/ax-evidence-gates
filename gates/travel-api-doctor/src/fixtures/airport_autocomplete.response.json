@@ -1,0 +1,13 @@
+{
+  "_synthetic": "합성 샘플. 응답에 airport.code(공항)와 city.code(도시)가 함께 들어있으며, 항공 API 입력에는 airport.code를 써야 한다 (개발자센터 문서 근거)",
+  "items": [
+    {
+      "airport": { "code": "ICN", "name": "인천국제공항" },
+      "city": { "code": "SEL", "name": "서울" }
+    },
+    {
+      "airport": { "code": "GMP", "name": "김포국제공항" },
+      "city": { "code": "SEL", "name": "서울" }
+    }
+  ]
+}

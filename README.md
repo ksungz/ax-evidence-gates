@@ -1,20 +1,20 @@
 # AX Evidence Gates
 
-공개 근거와 합성 데이터로 AI 결과물의 위험한 단정, 데이터 누락, 근거 부족을 점검하는 품질 게이트 3종입니다.
+공개 문서와 합성 데이터로 API 연동 코드, 상품 등록 정보, 투자 답변 초안을 점검하는 검수 도구 3종입니다.
 
 [![CI](https://github.com/ksungz/ax-evidence-gates/actions/workflows/ci.yml/badge.svg)](https://github.com/ksungz/ax-evidence-gates/actions/workflows/ci.yml)
 
-이 저장소는 AX 인재전쟁 2026 예선 과제로 제작한 세 개의 독립 프로토타입을 공개 포트폴리오용으로 다시 정리한 것입니다. 기업 내부 데이터나 비공개 API를 사용하지 않으며, 공개 문서와 합성 샘플만으로 동작을 재현합니다.
+이 저장소는 AX 인재전쟁 2026 예선에 실제 제출한 세 개의 Codex 플러그인을 공개 포트폴리오용으로 다시 정리한 것입니다. 기업 내부 데이터나 비공개 API를 사용하지 않으며, 공개 문서와 합성 샘플만으로 동작을 재현합니다.
 
 ## 한눈에 보기
 
-| 품질 게이트 | 점검하는 문제 | 공개 도메인 | 자동 테스트 |
+| 검수 도구 | 점검하는 문제 | 공개 근거 | 현재 자동 테스트 |
 |---|---|---|---:|
-| [Travel Booking Evidence Gate](gates/travel-booking/) | 예약 가능, 가격, 즉시 확정, 포함 사항 같은 구매 관련 문장에 근거가 있는지 확인 | 마이리얼트립 공개 TNA API 문서 | 9 |
+| [MRT API Doctor](gates/travel-api-doctor/) | 페이지 기준, 공항 코드, 인증, 호출 제한 등 Open API/MCP 연동 코드의 실수를 사전에 확인 | 마이리얼트립 개발자센터 | 19 |
 | [Commerce Listing Preflight](gates/commerce-listing/) | 상품 속성, 태그, 사이즈, 상품정보제공고시 누락 신호를 등록 전에 확인 | 무신사 공개 문서와 국가법령정보센터 | 17 |
 | [Investment Answer Gate](gates/investment-answer/) | 단정적 투자 권유, 수익 보장 표현, 사용자 조건과 위험 설명 누락을 확인 | 카카오페이증권 및 공공기관 공개 문서 | 8 |
 
-세 품질 게이트의 34개 자동 테스트가 정상 입력, 위반 입력, 손상된 입력과 근거 누락을 검증합니다.
+제출 당시에는 마이리얼트립 19개, 무신사 17개, 카카오페이증권 7개로 총 43개 테스트를 작성했습니다. 이후 카카오페이증권 입력 검사 1개를 보강해 현재 세 도구에는 44개 테스트가 있습니다.
 
 ## 제출 이후 확장
 
@@ -27,13 +27,13 @@
 - 결정과 실행 단계를 남기는 감사 기록
 - Streamlit 기반 검토 화면
 
-이 확장 기능은 AX 인재전쟁 제출물에 포함되지 않은 `v0.2 Post-hackathon iteration`입니다. 기존 품질 게이트와 확장 워크플로우를 합쳐 총 39개 자동 테스트를 실행합니다.
+이 확장 기능은 AX 인재전쟁 제출물에 포함되지 않은 `v0.2 Post-hackathon iteration`입니다. 기존 검수 도구와 확장 워크플로우를 합쳐 총 49개 자동 테스트를 실행합니다.
 
 ## 케이스 스터디
 
 각 프로젝트에서 왜 생성 기능보다 검증 도구를 선택했는지, 어디까지 구현하고 무엇을 제외했는지 짧게 정리했습니다.
 
-- [여행 예약 문장 근거 검수](docs/case-studies/travel-booking.md)
+- [마이리얼트립 API 연동 코드 사전 점검](docs/case-studies/travel-api-doctor.md)
 - [상품 등록 데이터 사전 점검](docs/case-studies/commerce-listing.md)
 - [금융 안내 답변 안전성 점검](docs/case-studies/investment-answer.md)
 
@@ -46,7 +46,7 @@ AI가 자연스러운 답변이나 데이터를 빠르게 만들더라도, 실�
 - 잘못된 입력이나 근거 부족을 어떻게 다루는가?
 - AI가 제안한 결과를 사람이 어디에서 검토하는가?
 
-세 프로젝트는 서로 다른 도메인을 다루지만 같은 원칙을 사용합니다.
+세 프로젝트는 검사 대상은 다르지만 같은 원칙을 사용합니다.
 
 1. 문제를 좁게 정의합니다.
 2. 공개 자료로 확인할 수 있는 범위만 구현합니다.
@@ -68,11 +68,12 @@ Python 3 표준 라이브러리만 사용합니다. 저장소 루트에서 전�
 
 ## 대표 동작
 
-### 여행 답변
+### 여행 API 연동 코드
 
 ```text
-"2026년 5월 1일 예약 가능" -> 날짜와 옵션 근거가 있으면 SUPPORTED
-"무료 취소 가능" -> 공개 필드에 취소 정책 근거가 없으면 BLOCKED
+투어 검색에서 page=0 사용 -> 1부터 시작해야 한다는 문서 근거와 함께 표시
+fromCityCode="TYO" 사용 -> 도시 코드가 아닌 공항 코드가 필요하다는 점을 표시
+Authorization 헤더의 Bearer 누락 -> 문서화된 401 원인으로 표시
 ```
 
 ### 상품 등록 데이터
@@ -94,9 +95,11 @@ Python 3 표준 라이브러리만 사용합니다. 저장소 루트에서 전�
 ```text
 .
 ├── gates/
-│   ├── travel-booking/
+│   ├── travel-api-doctor/
 │   ├── commerce-listing/
 │   └── investment-answer/
+├── experiments/
+│   └── booking-evidence-gate/
 ├── workflows/
 │   └── investment-answer-review/
 ├── docs/
@@ -133,6 +136,7 @@ AI는 공개 자료 탐색 보조, 후보 아이디어 비교, 코드와 테스�
 ## 관련 링크
 
 - [상세 Case Study](https://ksungz-github-io.vercel.app/case-studies/ax-evidence-gates)
+- [해커톤 후기](https://ksungz-github-io.vercel.app/engineering/ax-hackathon-retrospective)
 - [AX 인재전쟁 2026](https://hackathon.jocodingax.ai/)
 
 ## 라이선스

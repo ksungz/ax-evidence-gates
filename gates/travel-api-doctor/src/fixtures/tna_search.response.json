@@ -1,0 +1,12 @@
+{
+  "_synthetic": "합성 샘플. 투어 검색은 page 1-based, 페이지 크기 필드는 perPage (개발자센터 문서 근거)",
+  "page": 1,
+  "perPage": 20,
+  "items": [
+    {
+      "gid": 100001,
+      "title": "오사카 유니버설 스튜디오 1일 입장권 (합성 데이터)",
+      "salePrice": 89000
+    }
+  ]
+}

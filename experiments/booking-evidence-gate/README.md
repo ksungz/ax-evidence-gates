@@ -1,5 +1,7 @@
 # Booking Evidence Gate for MyRealTrip TNA
 
+> 이 디렉터리는 해커톤 준비 과정에서 만든 초기 여행 답변 검토 실험입니다. 최종 제출물은 [`MRT API Doctor`](../../gates/travel-api-doctor/)이며, 이 실험은 제출물 테스트 수와 대표 프로젝트 설명에 포함하지 않습니다.
+
 `booking-evidence-gate`는 synthetic MyRealTrip TNA fixture의 field evidence를 기준으로 AI 여행 답변 안의 예약 관련 claim을 검수하는 Codex 플러그인 MVP입니다.
 
 > MyRealTrip의 공식 제품이 아닌 독립 프로토타입입니다. 공개 문서와 합성 데이터만 사용합니다.
